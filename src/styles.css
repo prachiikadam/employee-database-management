@@ -45,7 +45,6 @@ body{
     flex-direction: column;
 }
 
-
 .employees__names--title,
 .employees__single--title{
     text-align: center;
@@ -53,3 +52,22 @@ body{
     border-bottom: 1px solid black;
     margin-bottom: 10px;
 }
+
+.employees__names--list{
+    display: flex;
+    flex-direction: column;
+}
+
+.employees__names--item{
+    cursor: pointer;
+    padding: 10px 15px;
+    text-align: center;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    background-color: bisque;
+}
+
+.employees__names--item:hover,.selected{
+    background-color: darkgoldenrod;
+}
+
