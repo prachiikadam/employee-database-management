@@ -1,0 +1,55 @@
+body{
+    font-family: sans-serif;
+    padding: 0 10px;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header > button{
+    border-radius: 20px;
+    border: none;
+    padding: 10px 15px;
+    background-color: bisque;
+    cursor: pointer;
+}
+
+.header > button:hover {
+    background-color: rgb(217, 135, 13);
+}
+
+.employees{
+    display: flex;
+}
+
+.employees > div{
+    border: 1px solid black;
+    height: 450px;
+    overflow-y: scroll;
+}
+
+.employees__names{
+    width: 30%;
+}
+
+.employees__single{
+    width: 70%;
+}
+.employees__names,
+.employees__single{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.employees__names--title,
+.employees__single--title{
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
