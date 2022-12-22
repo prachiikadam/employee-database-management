@@ -14,17 +14,43 @@ console.log('js file start');
     //add employee
     const createEmployee=document.querySelector(".createEmployee");
     const addEmployeeModal=document.querySelector(".addEmployee");
-
+    const addEmployeeForm=document.querySelector(".addEmployee__create")
     createEmployee.addEventListener('click',()=>{
-        console.log('button clicked')
+        //console.log('button clicked')
         addEmployeeModal.style.display="flex"
     })
+    const dobInput=document.querySelector(".addEmployee__create--dob")
+    
+    dobInput.max=`${new Date().getFullYear()-18}-${new Date().toISOString().slice(5,10)}`
+    console.log('dobInput',dobInput.max)
     addEmployeeModal.addEventListener('click',(e)=>{
-        console.log('e.target.className',e.target.className)
+        //console.log('e.target.className',e.target.className)
         if(e.target.className==='addEmployee'){
             addEmployeeModal.style.display="none" 
         }
     })
+    addEmployeeForm.addEventListener('submit',(e)=>{
+        e.preventDefault()
+
+        const formData=new FormData(addEmployeeForm)
+        //console.log("formData",formData)
+        const values=[...formData.entries()]
+        console.log('values',values)
+        let empData={}
+        values.forEach((val)=>{
+            empData[val[0]]=val[1]
+        })
+        
+        empData.id=employees[employees.length-1].id+1;
+        empData.age=new Date().getFullYear()-new Date(empData.dob).getFullYear();
+        empData.imageUrl =empData.imageUrl || "https://cdn-icons-png.flaticon.com/512/0/93.png";
+        //console.log(empData)
+        employees.push(empData)
+        renderEmployees();
+        addEmployeeForm.reset();
+        addEmployeeModal.style.display = "none";
+    })
+
     //selecting employee
     employeeList.addEventListener('click',(e)=>{
         if(e.target.tagName==="SPAN" && selectedEmployee.id!=e.target.id){
