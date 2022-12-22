@@ -12,8 +12,19 @@ console.log('js file start');
     const employeeInfo=document.querySelector(".employees__single--info");
 
     //add employee
+    const createEmployee=document.querySelector(".createEmployee");
+    const addEmployeeModal=document.querySelector(".addEmployee");
 
-
+    createEmployee.addEventListener('click',()=>{
+        console.log('button clicked')
+        addEmployeeModal.style.display="flex"
+    })
+    addEmployeeModal.addEventListener('click',(e)=>{
+        console.log('e.target.className',e.target.className)
+        if(e.target.className==='addEmployee'){
+            addEmployeeModal.style.display="none" 
+        }
+    })
     //selecting employee
     employeeList.addEventListener('click',(e)=>{
         if(e.target.tagName==="SPAN" && selectedEmployee.id!=e.target.id){
